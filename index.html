@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Content Universe — Dribbble Rework</title>
+  </head>
+  <style>
+    @font-face {
+      font-family: "Titling Gothic FB Wide";
+      src: url("TitlingGothicFBWide-Bold-AF65ddb136479f5.otf")
+        format("opentype");
+      font-weight: 700;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: "Titling Gothic FB Wide";
+      src: url("TitlingGothicFBWide-Black-AF65ddb1364d268.otf")
+        format("opentype");
+      font-weight: 900;
+      font-style: normal;
+    }
+    
+    @font-face {
+      font-family: "Tablet Gothic";
+      src: url("Tablet\ Gothic\ W02\ SemiBold.ttf") format("truetype");
+      font-weight: 400;
+      font-style: normal;
+    }
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+    .container {
+      min-height: 100vh;
+      background-color: #e9e3e3;
+      overflow: hidden;
+      position: relative;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px 40px;
+      position: relative;
+      animation-name: moving;
+      animation-duration: 0.7s;
+      animation-delay: 3s;
+      animation-timing-function: linear;
+      animation-fill-mode: forwards;
+      opacity: 0;
+    }
+    @keyframes moving {
+      from {
+        transform: translateY(-100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+    .left {
+      font-size: 10px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      font-family: "Tablet Gothic", sans-serif;
+      color: rgb(30, 30, 30);
+    }
+    .middle {
+      font-size: 12px;
+      letter-spacing: 2.4px;
+      text-transform: uppercase;
+      font-family: "Tablet Gothic", sans-serif;
+      color: rgb(255, 54, 54);
+    }
+    .right {
+      font-size: 12px;
+      letter-spacing: 2.4px;
+      text-transform: uppercase;
+      font-family: "Tablet Gothic", sans-serif;
+      color: rgb(30, 30, 30);
+      display: flex;
+    }
+    .right-image {
+      height: 15px;
+      margin-right: 5px;
+    }
+    .left-upper-text {
+      font-size: 18px;
+      text-transform: uppercase;
+      width: 550px;
+      color: #aba8a8;
+      position: absolute;
+      left: 50px;
+      margin-top: 10px;
+      font-weight: 700;
+      font-family: "Titling Gothic FB Wide", sans-serif;
+      animation: 0.5s slide-right 1s ease-out forwards; 
+      opacity: 0;
+    }
+
+    @keyframes slide-right {
+      0% {
+        transform: translateX(-30px);
+        opacity: 0;
+      }
+      100% {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    .center-main-text {
+      font-size: 48px;
+      text-transform: uppercase;
+      color: #1e1e1e;
+      position: absolute;
+      top: 400px;
+      left: 150px;
+      letter-spacing: -1px;
+      font-weight: 900;
+      font-family: "Titling Gothic FB Wide", sans-serif;
+      animation: 0.5s slide-right 1.8s ease-out forwards;
+      opacity: 0;
+    }
+    .center-second-main-text {
+      font-size: 12px;
+      text-transform: uppercase;
+      color: #1e1e1e;
+      position: absolute;
+      font-weight: 900;
+      font-family: "Titling Gothic FB Wide", sans-serif;
+      left: 220px;
+      top: 570px;
+      width: 400px;
+      line-height: 17px;
+      animation: 0.5s slide-right 2.2s ease-out forwards;
+      opacity: 0;
+    }
+    .brand {
+      font-size: 100px;
+      text-transform: uppercase;
+      color: rgb(255, 54, 54);
+      font-family: "Titling Gothic FB Wide", sans-serif;
+      font-weight: 700;
+      position: absolute;
+      letter-spacing: 160px;
+      left: 150px;
+      top: 140px;
+      z-index: 10;
+      animation: logo 0.7s ease-out forwards;
+      opacity: 0;
+    }
+
+    @keyframes logo {
+      0% {
+        transform: scale(1.2);
+        filter: blur(15px);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1);
+        filter: blur(0px);
+        opacity: 1;
+      }
+    }
+
+    .main-image-wrapper {
+      width: 550px;
+      height: 0;
+      overflow: hidden;
+      position: absolute;
+      top: 100px;
+      left: 770px;
+      animation: unfold 0.6s ease-out forwards 1.3s;
+    }
+
+    .main-image {
+      background-image: url(https://uploads-ssl.webflow.com/5c2e95d3f539dc3c78c6c3ea/5c300a137569f51deafb015d_image.jpg);
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+    } 
+
+    @keyframes unfold {
+      0% {
+        height: 0;
+      }
+      100% {
+        height: 100%;
+      }
+    }
+
+    .center-third-text {
+      font-size: 12px;
+      text-transform: uppercase;
+      color: #aba8a8;
+      /* letter-spacing: 1px; */
+      position: absolute;
+      font-weight: 700;
+      font-family: "Titling Gothic FB Wide", sans-serif;
+      bottom: 0;
+      left: 220px;
+      line-height: 15px;
+      animation: 0.5s slide-right 2.6s ease-out forwards;
+      opacity: 0;
+    }
+    .text-one {
+      color: #1e1e1e;
+    }
+    .text-two {
+      color: #848080;
+    }
+    .text-three {
+      color: #c1bcbc;
+    }
+    .right-text {
+      font-size: 10px;
+      text-transform: uppercase;
+      font-family: "Tablet Gothic", sans-serif;
+      color: rgb(255, 54, 54);
+      border-bottom: 2px solid rgb(255, 54, 54);
+      padding: 0px 8px 4px 8px;
+      width: 185px;
+      position: absolute;
+      bottom: 80px;
+      right: 30px;
+    }
+    .top-center {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      left: 230px;
+      top: 300px;
+      line-height: 20px;
+      animation: 0.5s slide-right 1.4s ease-out forwards;
+      opacity: 0;
+    }
+    .text-1 {
+      font-size: 12px;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      font-family: "Tablet Gothic", sans-serif;
+      color: rgb(255, 54, 54);
+    }
+    .text-2 {
+      font-size: 12px;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      font-family: "Tablet Gothic", sans-serif;
+      color: rgb(26, 26, 26);
+    }
+    .play-image {
+      height: 15px;
+    }
+    .angle-text {
+      font-size: 9px;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      font-family: "Tablet Gothic", sans-serif;
+      color: rgb(26, 26, 26);
+      position: absolute;
+      writing-mode: vertical-lr;
+      transform: rotate(180deg);
+      bottom: 120px;
+      left: 35px;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <nav>
+        <div class="left">For Collabrations +</div>
+        <div class="middle">Content Universe</div>
+        <div class="right">
+          <div>
+            <img
+              class="right-image"
+              src="https://uploads-ssl.webflow.com/5c2e95d3f539dc3c78c6c3ea/5c300a907569f52061fb0257_bx-menu-alt-right.svg"
+              alt=""
+            />
+          </div>
+          <div>Menu</div>
+        </div>
+      </nav>
+      <div class="left-upper-text">
+        We are a content creation team and we are going to make SOME cool stuff
+        for your
+      </div>
+      <div class="center-main-text">
+        Marketing
+        <br />
+        Strategy
+      </div>
+      <div class="center-second-main-text">
+        Our content marketing strategists take a scientific approach to content
+        campaigns, using hard data to craft the perfect strategy for any
+        client's goals.
+      </div>
+      <div class="center-third-text">
+        <div class="text-one">Content Creation</div>
+        <div class="text-two">Social and Paid</div>
+        <div class="text-three">Website Design</div>
+      </div>
+      <div class="brand">Brand</div>
+      <div class="main-image-wrapper">
+        <div class="main-image"></div>
+      </div>
+      <div class="right-text">Subscribe for our News/Events</div>
+      <div class="top-center">
+        <div>
+          <img
+            class="play-image"
+            src="	https://uploads-ssl.webflow.com/5c2e95d3f539dc3c78c6c3ea/5c2ecbf23ded38276494978b_play.svg"
+            alt=""
+          />
+        </div>
+        <div class="text-1">Play Video</div>
+        <div class="text-2">About Us</div>
+      </div>
+      <div class="angle-text">Scroll for all services</div>
+    </div>
+  </body>
+</html>
